@@ -2,6 +2,8 @@
 
 A web application that converts numerical input into words with currency formatting, built with ASP.NET Core 8.0 and C#.
 
+**Repository**: [https://github.com/GodfreyLee/techone-test](https://github.com/GodfreyLee/techone-test)
+
 ## Features
 
 -  Converts numbers to words with proper currency formatting
@@ -27,13 +29,15 @@ Before running this application, ensure you have the following installed:
 
 ## Quick Start
 
-### 1. Clone or Download
+### 1. Clone the Repository
 ```bash
-# If using git
-git clone <repository-url>
-cd techone_test
+# Clone from GitHub
+git clone https://github.com/GodfreyLee/techone-test.git
+cd techone-test
 
-# Or extract the provided files to a directory
+# Or using GitHub CLI
+gh repo clone GodfreyLee/techone-test
+cd techone-test
 ```
 
 ### 2. Build the Application
@@ -382,6 +386,15 @@ for i in {1..100}; do
 done
 ```
 
+## Repository Information
+
+**GitHub Repository**: [https://github.com/GodfreyLee/techone-test](https://github.com/GodfreyLee/techone-test)
+
+### Issues and Contributions
+- **Issues**: Report bugs or feature requests via [GitHub Issues](https://github.com/GodfreyLee/techone-test/issues)
+- **Pull Requests**: Fork the repository and submit pull requests for improvements
+- **Clone Command**: `git clone https://github.com/GodfreyLee/techone-test.git`
+
 ## Version History
 
 - **v1.0.0** - Initial implementation with core features
@@ -390,3 +403,5 @@ done
   - Web interface
   - API endpoints
   - Comprehensive testing
+  - Docker containerization
+  - Automated unit testing (30 test cases)
