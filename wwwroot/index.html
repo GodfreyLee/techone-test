@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number to Words Converter</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 8px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .result.success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .result.error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .examples {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .examples h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .example-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+        }
+
+        .example-input {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .example-output {
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Number to Words Converter</h1>
+        
+        <form id="conversionForm">
+            <div class="input-group">
+                <label for="numberInput">Enter a number (with optional decimal places):</label>
+                <input type="text" id="numberInput" placeholder="e.g., 123.45" autocomplete="off">
+            </div>
+            
+            <button type="submit" id="convertButton">
+                Convert to Words
+            </button>
+        </form>
+        
+        <div id="result" class="result" style="display: none;"></div>
+        
+        <div class="examples">
+            <h3>Examples:</h3>
+            <div class="example-item">
+                <div class="example-input">Input: 123.45</div>
+                <div class="example-output">Output: ONE HUNDRED AND TWENTY-THREE DOLLARS AND FORTY-FIVE CENTS</div>
+            </div>
+            <div class="example-item">
+                <div class="example-input">Input: 1000</div>
+                <div class="example-output">Output: ONE THOUSAND DOLLARS</div>
+            </div>
+            <div class="example-item">
+                <div class="example-input">Input: 0.99</div>
+                <div class="example-output">Output: NINETY-NINE CENTS</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('conversionForm');
+        const numberInput = document.getElementById('numberInput');
+        const convertButton = document.getElementById('convertButton');
+        const result = document.getElementById('result');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const number = numberInput.value.trim();
+            if (!number) {
+                showResult('Please enter a number', false);
+                return;
+            }
+
+            setLoading(true);
+            
+            try {
+                const response = await fetch('/api/numbertowords/convert', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ number: number })
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    showResult(data.words, true);
+                } else {
+                    showResult(data.errorMessage || 'An error occurred', false);
+                }
+            } catch (error) {
+                showResult('Failed to connect to the server. Please try again.', false);
+            } finally {
+                setLoading(false);
+            }
+        });
+
+        function setLoading(isLoading) {
+            convertButton.disabled = isLoading;
+            if (isLoading) {
+                convertButton.innerHTML = '<span class="loading"></span>Converting...';
+            } else {
+                convertButton.innerHTML = 'Convert to Words';
+            }
+        }
+
+        function showResult(message, isSuccess) {
+            result.style.display = 'flex';
+            result.className = `result ${isSuccess ? 'success' : 'error'}`;
+            result.textContent = message;
+        }
+
+        // Allow Enter key to submit
+        numberInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                form.dispatchEvent(new Event('submit'));
+            }
+        });
+
+        // Auto-focus input on page load
+        numberInput.focus();
+    </script>
+</body>
+</html>

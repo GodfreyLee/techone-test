@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "WQ0WEoBvUwpJJRquvPyUeuvhzfG+MerhnCHGBSN2Ib4=",
+  "Source": "NumberToWordsApp",
+  "BasePath": "_content/NumberToWordsApp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "NumberToWordsApp/wwwroot",
+      "Source": "NumberToWordsApp",
+      "ContentRoot": "/home/godfrey/Downloads/Code/techone_test/wwwroot/",
+      "BasePath": "_content/NumberToWordsApp",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/home/godfrey/Downloads/Code/techone_test/wwwroot/index.html",
+      "SourceId": "NumberToWordsApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/godfrey/Downloads/Code/techone_test/wwwroot/",
+      "BasePath": "_content/NumberToWordsApp",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/index.html"
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/godfrey/Downloads/Code/techone_test/NumberToWordsApp.Tests/NumberToWordsApp.Tests.csproj": {}
+  },
+  "projects": {
+    "/home/godfrey/Downloads/Code/techone_test/NumberToWordsApp.Tests/NumberToWordsApp.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/godfrey/Downloads/Code/techone_test/NumberToWordsApp.Tests/NumberToWordsApp.Tests.csproj",
+        "projectName": "NumberToWordsApp.Tests",
+        "projectPath": "/home/godfrey/Downloads/Code/techone_test/NumberToWordsApp.Tests/NumberToWordsApp.Tests.csproj",
+        "packagesPath": "/home/godfrey/.nuget/packages/",
+        "outputPath": "/home/godfrey/Downloads/Code/techone_test/NumberToWordsApp.Tests/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/godfrey/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/godfrey/Downloads/Code/techone_test/NumberToWordsApp.csproj": {
+                "projectPath": "/home/godfrey/Downloads/Code/techone_test/NumberToWordsApp.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.8.0, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.6.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.5.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.118/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/godfrey/Downloads/Code/techone_test/NumberToWordsApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/godfrey/Downloads/Code/techone_test/NumberToWordsApp.csproj",
+        "projectName": "NumberToWordsApp",
+        "projectPath": "/home/godfrey/Downloads/Code/techone_test/NumberToWordsApp.csproj",
+        "packagesPath": "/home/godfrey/.nuget/packages/",
+        "outputPath": "/home/godfrey/Downloads/Code/techone_test/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/godfrey/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.118/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
